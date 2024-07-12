@@ -12,10 +12,12 @@ struct ContentView: View {
         ZStack {
             OFColor.gray.edgesIgnoringSafeArea(.all)
             VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
+//                Image(systemName: "globe")
+//                    .imageScale(.large)
+//                    .foregroundStyle(.tint)
+                Text("Open Finance")
+                    .font(.system(size: 36))
+                    .bold()
             }
             .padding()
         }
