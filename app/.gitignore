@@ -1,0 +1,8 @@
+.build/
+xcuserdata/
+IDEWorkspaceChecks.plist
+*.xcsettings
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
