@@ -13,6 +13,10 @@ enum OFColor {
     static let gray = Color(hex: 0xF5F5F5)
 }
 
+extension OFColor {
+    static let background = OFColor.gray
+}
+
 // MARK: - Extensions
 
 extension Color {

@@ -8,18 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var shouldTransition = false
     var body: some View {
-        ZStack {
-            OFColor.gray.edgesIgnoringSafeArea(.all)
-            VStack {
-//                Image(systemName: "globe")
-//                    .imageScale(.large)
-//                    .foregroundStyle(.tint)
-                Text("Open Finance")
-                    .font(.system(size: 36))
-                    .bold()
+        VStack {
+            if shouldTransition {
+                Dash()
+                    .transition(.opacity)
+            } else {
+                ZStack {
+                    OFColor.background.edgesIgnoringSafeArea(.all)
+                    VStack {
+                        //                Image(systemName: "globe")
+                        //                    .imageScale(.large)
+                        //                    .foregroundStyle(.tint)
+                        Text("Open Finance")
+                            .font(.system(size: 36))
+                            .bold()
+                    }
+                    .padding()
+                }
             }
-            .padding()
+        }
+        .onAppear {
+            Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { _ in
+                withAnimation(.easeIn) {
+                    shouldTransition = true
+                }
+            }
         }
     }
 }
