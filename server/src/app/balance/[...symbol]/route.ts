@@ -4,6 +4,7 @@ import { Address, parseAbi } from "viem";
 import { getAddressForSymbol } from "@/lib/addresses";
 import { publicClient } from "@/lib/client";
 
+export const dynamic = "force-dynamic";
 export async function GET(
   request: NextRequest,
   { params }: { params: { symbol: string } }

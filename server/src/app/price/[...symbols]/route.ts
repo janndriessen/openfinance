@@ -3,6 +3,7 @@ import { PriceServiceConnection } from "@pythnetwork/price-service-client";
 
 import { getPriceIdForSymbols } from "@/lib/addresses";
 
+export const dynamic = "force-dynamic";
 export async function GET(
   request: NextRequest,
   { params }: { params: { symbols: string } }

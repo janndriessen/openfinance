@@ -24,6 +24,7 @@ function getOracleFor(symbol1: string, symbol2: string): Address {
   }
 }
 
+export const dynamic = "force-dynamic";
 export async function POST(request: Request) {
   const res = await request.json();
   const ammOracle = getOracleFor(res.baseToken, res.quoteToken);
