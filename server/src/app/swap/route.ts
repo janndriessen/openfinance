@@ -1,4 +1,5 @@
 import { Address, parseAbi } from "viem";
+import { EvmPriceServiceConnection } from "@pythnetwork/pyth-evm-js";
 
 import { getAddressForSymbol } from "@/lib/addresses";
 import { walletClient } from "@/lib/client";
@@ -36,7 +37,27 @@ export async function POST(request: Request) {
   //     functionName: "approve",
   //     args: [spender, BigInt(res.amount)],
   //   });
-  //   console.log(hash);
-  // TODO: send tx
+  // USDC/USD
+  const quoteTokenPriceFeedId =
+    "0xeaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a";
+  const baseTokenPriceFeedId = "";
+  const pythPriceService = new EvmPriceServiceConnection(
+    "https://hermes.pyth.network"
+  );
+  const priceFeedUpdateData = (await pythPriceService.getPriceFeedsUpdateData([
+    baseTokenPriceFeedId,
+    quoteTokenPriceFeedId,
+  ])) as `0x${string}`[];
+  const hash = await walletClient.writeContract({
+    address: ammOracle,
+    abi: parseAbi([
+      "function swap(bool isBuy, uint256 size, bytes[] calldata pythUpdateData) external payable",
+    ]),
+    functionName: "swap",
+    args: [isBuy, BigInt(res.amount), priceFeedUpdateData],
+    // TODO:
+    value: BigInt(0),
+  });
+  console.log(hash);
   return Response.json({ res });
 }

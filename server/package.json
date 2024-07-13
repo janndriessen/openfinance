@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@pythnetwork/hermes-client": "^1.0.4",
     "@pythnetwork/price-service-client": "^1.9.0",
+    "@pythnetwork/pyth-evm-js": "^1.56.1",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
