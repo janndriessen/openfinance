@@ -6,6 +6,7 @@
 //
 
 import BasedUtils
+import BigInt
 import Foundation
 
 enum OFApiError: Error {
@@ -26,7 +27,7 @@ class OFApi {
     }
 
     func getBalance(for symbol: String, account: String) async throws -> String {
-        guard let url = URL(string: "\(baseUrl)/balance/\(symbol.lowercased())?account=\(account))") else { throw OFApiError.invalidConfig }
+        guard let url = URL(string: "\(baseUrl)/balance/\(symbol.lowercased())?account=\(account)") else { throw OFApiError.invalidConfig }
         let request = try createGetRequest(url: url)
         let (data, res) = try await URLSession.shared.data(for: request)
         if let httpResponse = res as? HTTPURLResponse {
@@ -41,7 +42,7 @@ class OFApi {
             }
         }
         let balance = try JSONDecoder().decode(BalanceResponse.self, from: data)
-        return balance.balance
+        return "\(BasedUtils.formatUnits(BigInt(balance.balance) ?? BigInt(0), 6)) USDC"
     }
 
     // MARK: - GET /price

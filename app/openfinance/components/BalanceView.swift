@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct BalanceView: View {
+    var balance: String
     var body: some View {
         VStack(alignment: .leading) {
             Text("Balance")
                 .font(.system(size: 16))
-            Text("$2.850,75")
+            Text(balance)
                 .font(.system(size: 24))
                 .bold()
         }
@@ -20,5 +21,5 @@ struct BalanceView: View {
 }
 
 #Preview {
-    BalanceView()
+    BalanceView(balance: "2.850,75 USDC")
 }
