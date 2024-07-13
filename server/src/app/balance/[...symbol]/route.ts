@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 import { publicClient } from "@/lib/client";
 import { Address, parseAbi } from "viem";
@@ -12,9 +12,11 @@ function getAddressForSymbol(symbol: string): Address {
 }
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { symbol: string } }
 ) {
+  const searchParams = request.nextUrl.searchParams;
+  const account = searchParams.get("account") as Address;
   const symbols = params.symbol;
   console.log(symbols);
   if (symbols.length !== 1) {
@@ -27,7 +29,7 @@ export async function GET(
       "function balanceOf(address owner) public view returns (uint256 balance)",
     ]),
     functionName: "balanceOf",
-    args: [""],
+    args: [account],
   });
   console.log(balance.toString());
   return NextResponse.json({ balance: balance.toString(), symbol: symbols[0] });
