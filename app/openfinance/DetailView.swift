@@ -16,12 +16,11 @@ struct DetailView: View {
         DataPoint(x: 4, y: 3)
     ]
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topLeading) {
             OFColor.background.edgesIgnoringSafeArea(.all)
-            VStack {
-                Text("AAPL")
-                    .font(.title)
-                    .foregroundStyle(OFColor.black)
+            VStack(alignment: .leading) {
+                AssetView()
+                    .padding()
                 LineChartView(data: data)
             }
         }
