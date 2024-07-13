@@ -1,4 +1,7 @@
-import { Address } from "viem";
+import { Address, parseAbi } from "viem";
+
+import { getAddressForSymbol } from "@/lib/addresses";
+import { walletClient } from "@/lib/client";
 
 function getOracleFor(symbol1: string, symbol2: string): Address {
   const symbol = `${symbol1.toLowerCase()}-${symbol2.toLowerCase()}`;
@@ -21,5 +24,19 @@ export async function POST(request: Request) {
   console.log(ammOracle);
   const isBuy = res.isBuy;
   console.log("isBuy", isBuy);
+  const inputToken = getAddressForSymbol(
+    isBuy ? res.quoteToken : res.baseToken
+  );
+  const spender = ammOracle;
+  //   const hash = await walletClient.writeContract({
+  //     address: inputToken,
+  //     abi: parseAbi([
+  //       "function approve(address _spender, uint256 _value) public returns (bool success)",
+  //     ]),
+  //     functionName: "approve",
+  //     args: [spender, BigInt(res.amount)],
+  //   });
+  //   console.log(hash);
+  // TODO: send tx
   return Response.json({ res });
 }
