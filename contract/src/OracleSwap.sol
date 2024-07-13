@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 import "@pythnetwork/pyth-sdk-solidity/IPyth.sol";
 import "@pythnetwork/pyth-sdk-solidity/PythStructs.sol";
 import "@pythnetwork/pyth-sdk-solidity/PythUtils.sol";
+import "openzeppelin-contracts/contracts/access/Ownable.sol";
 import "openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
 
 // Example oracle AMM powered by Pyth price feeds.
@@ -17,7 +18,7 @@ import "openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
 // price to reflect an unbalanced pool) or depositing / withdrawing funds. When deployed, the contract needs to be sent
 // some quantity of both the base and quote token in order to function properly (using the ERC20 transfer function to
 // the contract's address).
-contract OracleSwap {
+contract OracleSwap is Ownable {
     event Transfer(
         address from,
         address to,
@@ -116,7 +117,7 @@ contract OracleSwap {
 
     // Send all tokens in the oracle AMM pool to the caller of this method.
     // (This function is for demo purposes only. You wouldn't include this on a real contract.)
-    function withdrawAll() external {
+    function withdrawAll() external onlyOwner {
         baseToken.transfer(msg.sender, baseToken.balanceOf(address(this)));
         quoteToken.transfer(msg.sender, quoteToken.balanceOf(address(this)));
     }

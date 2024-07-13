@@ -132,5 +132,22 @@ contract OracleSwapTest is Test {
         assertEq(baseToken.balanceOf(address(swap)), 0);
     }
 
+    function testWithdrawFails() public {
+        setupTokens(10e18, 10e18, 10e18, 10e18);
+
+        uint256 randomUserPrivateKey = vm.envUint("PRIVATE_KEY");
+        address userAddress = vm.addr(randomUserPrivateKey);
+        vm.startBroadcast(userAddress);
+
+        vm.expectRevert();
+        swap.withdrawAll();
+
+        assertEq(quoteToken.balanceOf(address(userAddress)), 0);
+        assertEq(baseToken.balanceOf(address(userAddress)), 0);
+        assertEq(quoteToken.balanceOf(address(swap)), 10e18);
+        assertEq(baseToken.balanceOf(address(swap)), 10e18);
+        vm.stopBroadcast();
+    }
+
     receive() external payable {}
 }
