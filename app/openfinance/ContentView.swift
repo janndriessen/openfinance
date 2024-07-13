@@ -18,9 +18,6 @@ struct ContentView: View {
                 ZStack {
                     OFColor.background.edgesIgnoringSafeArea(.all)
                     VStack {
-                        //                Image(systemName: "globe")
-                        //                    .imageScale(.large)
-                        //                    .foregroundStyle(.tint)
                         Text("Open Finance")
                             .font(.system(size: 36))
                             .bold()

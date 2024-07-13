@@ -15,6 +15,7 @@
 		698B38F32C4250BA00F68BB8 /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698B38F22C4250BA00F68BB8 /* AssetView.swift */; };
 		698B38F52C42519700F68BB8 /* AssetItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698B38F42C42519700F68BB8 /* AssetItemView.swift */; };
 		698B38F72C42540100F68BB8 /* OFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698B38F62C42540100F68BB8 /* OFButton.swift */; };
+		698B38F92C42576900F68BB8 /* ExchangeRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698B38F82C42576900F68BB8 /* ExchangeRateView.swift */; };
 		69F17DA42C41B9D7001D8D0B /* openfinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F17DA32C41B9D7001D8D0B /* openfinanceApp.swift */; };
 		69F17DA62C41B9D7001D8D0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F17DA52C41B9D7001D8D0B /* ContentView.swift */; };
 		69F17DA82C41B9D8001D8D0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69F17DA72C41B9D8001D8D0B /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		698B38F22C4250BA00F68BB8 /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		698B38F42C42519700F68BB8 /* AssetItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetItemView.swift; sourceTree = "<group>"; };
 		698B38F62C42540100F68BB8 /* OFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFButton.swift; sourceTree = "<group>"; };
+		698B38F82C42576900F68BB8 /* ExchangeRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateView.swift; sourceTree = "<group>"; };
 		69F17DA02C41B9D7001D8D0B /* openfinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openfinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F17DA32C41B9D7001D8D0B /* openfinanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = openfinanceApp.swift; sourceTree = "<group>"; };
 		69F17DA52C41B9D7001D8D0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				698B38F22C4250BA00F68BB8 /* AssetView.swift */,
 				698B38F42C42519700F68BB8 /* AssetItemView.swift */,
 				698B38F02C42500700F68BB8 /* BalanceView.swift */,
+				698B38F82C42576900F68BB8 /* ExchangeRateView.swift */,
 				698B38EE2C424F4300F68BB8 /* LineChartView.swift */,
 				698B38F62C42540100F68BB8 /* OFButton.swift */,
 			);
@@ -296,6 +299,7 @@
 				698B38F52C42519700F68BB8 /* AssetItemView.swift in Sources */,
 				6944C75C2C41BBB100710D9A /* Colors.swift in Sources */,
 				6944C7602C41BE6500710D9A /* DetailView.swift in Sources */,
+				698B38F92C42576900F68BB8 /* ExchangeRateView.swift in Sources */,
 				69F17DA42C41B9D7001D8D0B /* openfinanceApp.swift in Sources */,
 				698B38F32C4250BA00F68BB8 /* AssetView.swift in Sources */,
 				698B38EF2C424F4300F68BB8 /* LineChartView.swift in Sources */,

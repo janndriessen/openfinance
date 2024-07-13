@@ -23,6 +23,8 @@ struct DetailView: View {
                     .padding()
                 LineChartView(data: data)
                     .frame(height: 200)
+                ExchangeRateView()
+                    .padding()
                 Spacer()
                 HStack {
                     OFButton(title: "Buy") {
