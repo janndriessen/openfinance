@@ -42,7 +42,7 @@ class OFApi {
             }
         }
         let balance = try JSONDecoder().decode(BalanceResponse.self, from: data)
-        return "\(BasedUtils.formatUnits(BigInt(balance.balance) ?? BigInt(0), 6)) USDC"
+        return "\(BasedUtils.formatUnits(BigInt(balance.balance) ?? BigInt(0), 6)) \(symbol)"
     }
 
     // MARK: - GET /price

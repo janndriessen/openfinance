@@ -15,6 +15,7 @@ struct DetailViewItem: Identifiable {
 struct Dash: View {
     @State private var balance = ""
     @State private var detailItem: DetailViewItem? = nil
+    @State private var isToggled = false
     var body: some View {
         ZStack(alignment: .topLeading) {
             OFColor.background.edgesIgnoringSafeArea(.all)
@@ -28,20 +29,43 @@ struct Dash: View {
                         }
                 }
                 Spacer()
+                HStack {
+                    Text("USDC")
+                        .font(.headline)
+                        .foregroundColor(isToggled ? .gray : .blue)
+                    Toggle(isOn: $isToggled) {
+                        // Empty label, as we are managing the labels separately
+                    }
+                    .toggleStyle(SwitchToggleStyle(tint: .blue))
+                    .labelsHidden()
+                    Text("EURC")
+                        .font(.headline)
+                        .foregroundColor(isToggled ? .blue : .gray)
+                }
+                .padding()
             }
         }
         .onAppear {
-            Task.init {
-                let api = OFApi()
-                let fetchedBalance = try? await api.getBalance(for: "USDC", account: "0x77DA8EdFcdcA35E4c28f64A21e4808A24741eF20")
-                if let fetchedBalance {
-                    self.balance = fetchedBalance
-                }
-            }
+            fetchBalance(symbol: "USDC")
         }
+        .onChange(of: isToggled, { _, newValue in
+            let quoteAsset = isToggled ? "EURC" : "USDC"
+            fetchBalance(symbol: quoteAsset)
+        })
         .sheet(item: $detailItem, content: {
             DetailView(symbol: $0.symbol)
         })
+    }
+    
+    @MainActor
+    private func fetchBalance(symbol: String) {
+        Task.init {
+            let api = OFApi()
+            let fetchedBalance = try? await api.getBalance(for: symbol, account: "0x77DA8EdFcdcA35E4c28f64A21e4808A24741eF20")
+            if let fetchedBalance {
+                self.balance = fetchedBalance
+            }
+        }
     }
 }
 
