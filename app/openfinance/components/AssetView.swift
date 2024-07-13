@@ -11,7 +11,7 @@ struct AssetView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("AMZN")
-                .font(.system(size: 36, weight: .black))
+                .font(.system(size: 32, weight: .black))
             Text("$189.45")
                 .font(.system(size: 24, weight: .bold))
         }

@@ -11,10 +11,12 @@ import SwiftUI
 enum OFColor {
     static let black = Color(hex: 0x2B2A2A)
     static let gray = Color(hex: 0xF5F5F5)
+    static let white = Color(hex: 0xFFFFFF)
 }
 
 extension OFColor {
     static let background = OFColor.gray
+    static let text = OFColor.black
 }
 
 // MARK: - Extensions

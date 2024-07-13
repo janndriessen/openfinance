@@ -30,7 +30,6 @@ struct LineChartView: View {
         .chartPlotStyle { plotArea in
             plotArea.background(.clear)
         }
-        .frame(height: 200)
     }
 }
 

@@ -22,6 +22,18 @@ struct DetailView: View {
                 AssetView()
                     .padding()
                 LineChartView(data: data)
+                    .frame(height: 200)
+                Spacer()
+                HStack {
+                    OFButton(title: "Buy") {
+                        print("buy")
+                    }
+                    .padding()
+                    OFButton(type: .gray, title: "Sell") {
+                        print("sell")
+                    }
+                }
+                .padding(.horizontal)
             }
         }
     }

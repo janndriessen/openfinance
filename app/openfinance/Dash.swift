@@ -12,14 +12,19 @@ struct Dash: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             OFColor.background.edgesIgnoringSafeArea(.all)
-            VStack {
+            VStack(alignment: .leading) {
                 BalanceView()
+                    .padding()
+                AssetItemView()
+                    .onTapGesture {
+                        showDetail.toggle()
+                    }
+                AssetItemView()
+                    .onTapGesture {
+                        showDetail.toggle()
+                    }
                 Spacer()
-                Button("Detail") {
-                    showDetail.toggle()
-                }
             }
-            .padding()
         }
         .sheet(isPresented: $showDetail, content: {
             DetailView()
