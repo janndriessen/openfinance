@@ -23,7 +23,6 @@ export async function GET(
   { params }: { params: { symbols: string } }
 ) {
   const symbols = params.symbols;
-  console.log(symbols);
   if (symbols.length !== 2) {
     return NextResponse.json({ message: "not found", status: 404 });
   }
@@ -42,22 +41,15 @@ export async function GET(
   // Get the latest price updates for the given price IDs.
   // If you set `binary: true` above, then this method also returns signed price updates for the on-chain Pyth contract.
   const currentPrices = await connection.getLatestPriceFeeds(priceIds);
-  console.log(currentPrices);
   if (!currentPrices) {
     return NextResponse.json({
       price: 0,
       symbol: `${symbols[0]}/${symbols[1]}`,
     });
   }
-  console.log(currentPrices);
   const priceUnchecked = currentPrices[0].getPriceUnchecked();
   const price =
     Number(priceUnchecked.price) / Math.pow(10, Math.abs(priceUnchecked.expo));
-  console.log(
-    price,
-    priceUnchecked.price,
-    Math.pow(10, Math.abs(priceUnchecked.expo))
-  );
   return NextResponse.json({
     price,
     symbol: `${symbols[0]}/${symbols[1]}`,

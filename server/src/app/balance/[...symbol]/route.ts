@@ -26,7 +26,6 @@ export async function GET(
   const searchParams = request.nextUrl.searchParams;
   const account = searchParams.get("account") as Address;
   const symbols = params.symbol;
-  console.log(symbols);
   if (symbols.length !== 1) {
     return NextResponse.json({ message: "wrong symbol", status: 404 });
   }
@@ -39,6 +38,5 @@ export async function GET(
     functionName: "balanceOf",
     args: [account],
   });
-  console.log(balance.toString());
   return NextResponse.json({ balance: balance.toString(), symbol: symbols[0] });
 }
