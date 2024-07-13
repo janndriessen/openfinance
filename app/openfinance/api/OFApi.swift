@@ -54,7 +54,7 @@ class OFApi {
     func getPrice(symbol1: String, symbol2: String) async throws -> String {
         guard let url = URL(string: "\(baseUrl)/price/\(symbol1)/\(symbol2)") else { throw OFApiError.invalidConfig }
         let request = try createGetRequest(url: url)
-        let (data, resp) = try await URLSession.shared.data(for: request)
+        let (data, _) = try await URLSession.shared.data(for: request)
         let res = try JSONDecoder().decode(PriceResponse.self, from: data)
         return "\(res.price)"
     }

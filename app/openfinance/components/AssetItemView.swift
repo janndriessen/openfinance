@@ -16,14 +16,24 @@ struct AssetItemView: View {
         DataPoint(x: 3, y: 4),
         DataPoint(x: 4, y: 3)
     ]
+    @State private var price: String = ""
     var body: some View {
         HStack {
-            AssetView(symbol: symbol)
+            AssetView(symbol: symbol, price: price)
                 .padding(.trailing)
             LineChartView(data: data)
                 .frame(height: 70)
         }
         .padding(.horizontal)
+        .onAppear {
+            Task.init {
+                let api = OFApi()
+                let fetchedPrice = try? await api.getPrice(symbol1: "s\(symbol)", symbol2: "USDC")
+                if let fetchedPrice {
+                    self.price = fetchedPrice
+                }
+            }
+        }
     }
 }
 
