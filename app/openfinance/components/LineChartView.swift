@@ -39,7 +39,9 @@ struct LineChartView: View {
         DataPoint(x: 1, y: 3),
         DataPoint(x: 2, y: 2),
         DataPoint(x: 3, y: 4),
-        DataPoint(x: 4, y: 3)
+        DataPoint(x: 4, y: 3),
+        DataPoint(x: 4, y: 3),
+        DataPoint(x: 5, y: 6)
     ]
     return LineChartView(data: data)
 }

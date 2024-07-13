@@ -14,13 +14,15 @@ struct AssetItemView: View {
         DataPoint(x: 1, y: 3),
         DataPoint(x: 2, y: 2),
         DataPoint(x: 3, y: 4),
-        DataPoint(x: 4, y: 3)
+        DataPoint(x: 4, y: 3),
+        DataPoint(x: 4, y: 3),
+        DataPoint(x: 5, y: 6)
     ]
     @State private var price: String = ""
     var body: some View {
         HStack {
             AssetView(symbol: symbol, price: price)
-                .padding(.trailing)
+                .padding(.trailing, 30)
             LineChartView(data: data)
                 .frame(height: 70)
         }
