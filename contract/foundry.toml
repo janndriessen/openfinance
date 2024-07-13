@@ -4,4 +4,9 @@ src = 'src'
 out = 'out'
 libs = ['lib']
 
-# See more config options https://github.com/foundry-rs/foundry/tree/master/config
+[etherscan]
+base-sepolia = { key = "${ETHERSCAN_API_KEY}" }
+
+[rpc_endpoints]
+base-sepolia = "https://base-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}"
+
