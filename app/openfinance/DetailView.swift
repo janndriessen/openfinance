@@ -37,7 +37,7 @@ struct DetailView: View {
                     }
                     .padding()
                     OFButton(type: .gray, title: "Sell") {
-                        print("sell")
+                        buy(isBuy: false)
                     }
                 }
                 .padding(.horizontal)
@@ -55,8 +55,8 @@ struct DetailView: View {
     }
     
     @MainActor
-    private func buy() {
-        print("buy")
+    private func buy(isBuy: Bool = true) {
+        print(isBuy ? "buy" : "sell")
         Task.init {
             isLoading = true
             try await Task.sleep(nanoseconds: 1_500_000_000)
@@ -65,7 +65,7 @@ struct DetailView: View {
         // TODO: could be used if price feeds were working for stocks on the weekend
 //                        Task.init {
 //                            let api = OFApi()
-//                            let _ = try? await api.swap(request: OFApi.SwapRequest(baseToken: symbol, quoteToken: "USDC", amount: "1000000000000000000", isBuy: true))
+//                            let _ = try? await api.swap(request: OFApi.SwapRequest(baseToken: symbol, quoteToken: "USDC", amount: "1000000000000000000", isBuy: isBuy))
 //                        }
     }
 }
