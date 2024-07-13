@@ -9,10 +9,10 @@ import "openzeppelin-contracts/contracts/mocks/ERC20Mock.sol";
 contract OracleSwapTest is Test {
     MockPyth public mockPyth;
 
-    bytes32 constant BASE_PRICE_ID =
-        0x000000000000000000000000000000000000000000000000000000000000abcd;
-    bytes32 constant QUOTE_PRICE_ID =
-        0x0000000000000000000000000000000000000000000000000000000000001234;
+    bytes32 constant BASE_PRICE_ID = 
+        0xb5d0e0fa58a1f8b81498ae670ce93c872d14434b72c364885d4fa1b257cbb07a;
+    bytes32 constant QUOTE_PRICE_ID = 
+        0xeaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a;
 
     ERC20Mock baseToken;
     address payable constant BASE_TOKEN_MINT =
@@ -34,16 +34,16 @@ contract OracleSwapTest is Test {
         mockPyth = new MockPyth(60, 1);
 
         baseToken = new ERC20Mock(
-            "Foo token",
-            "FOO",
-            BASE_TOKEN_MINT,
+            "sAMZN",
+            "sAMZN",
+            QUOTE_TOKEN_MINT,
             1000 * 10 ** 18
         );
         quoteToken = new ERC20Mock(
-            "Bar token",
-            "BAR",
-            QUOTE_TOKEN_MINT,
-            1000 * 10 ** 18
+            "USDC",
+            "USDC",
+            BASE_TOKEN_MINT,
+            1000 * 10 ** 6
         );
 
         swap = new OracleSwap(
