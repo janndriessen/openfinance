@@ -10,14 +10,16 @@ import SwiftUI
 struct Dash: View {
     @State private var showDetail = false
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topLeading) {
             OFColor.background.edgesIgnoringSafeArea(.all)
             VStack {
-                Text("Balance")
+                BalanceView()
+                Spacer()
                 Button("Detail") {
                     showDetail.toggle()
                 }
             }
+            .padding()
         }
         .sheet(isPresented: $showDetail, content: {
             DetailView()
