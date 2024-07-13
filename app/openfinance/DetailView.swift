@@ -23,11 +23,11 @@ struct DetailView: View {
         ZStack(alignment: .topLeading) {
             OFColor.background.edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading) {
-                AssetView(symbol: symbol)
+                AssetView(symbol: symbol, price: price)
                     .padding()
                 LineChartView(data: data)
                     .frame(height: 200)
-                ExchangeRateView(baseSymbol: symbol)
+                ExchangeRateView(baseSymbol: symbol, quotePrice: price)
                     .padding()
                 Spacer()
                 HStack {
@@ -40,6 +40,15 @@ struct DetailView: View {
                     }
                 }
                 .padding(.horizontal)
+            }
+        }
+        .onAppear {
+            Task.init {
+                let api = OFApi()
+                let fetchedPrice = try? await api.getPrice(symbol1: "s\(symbol)", symbol2: "USDC")
+                if let fetchedPrice {
+                    self.price = fetchedPrice
+                }
             }
         }
     }

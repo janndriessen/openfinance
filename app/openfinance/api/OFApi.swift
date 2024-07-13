@@ -47,16 +47,16 @@ class OFApi {
     // MARK: - GET /price
 
     struct PriceResponse: Decodable {
-        let price: String
+        let price: Double
         let symbol: String
     }
 
     func getPrice(symbol1: String, symbol2: String) async throws -> String {
-        guard let url = URL(string: baseUrl + "/price/\(symbol1)/\(symbol2)") else { throw OFApiError.invalidConfig }
+        guard let url = URL(string: "\(baseUrl)/price/\(symbol1)/\(symbol2)") else { throw OFApiError.invalidConfig }
         let request = try createGetRequest(url: url)
-        let (data, _) = try await URLSession.shared.data(for: request)
+        let (data, resp) = try await URLSession.shared.data(for: request)
         let res = try JSONDecoder().decode(PriceResponse.self, from: data)
-        return res.price
+        return "\(res.price)"
     }
 
     // MARK: - POST /swap
