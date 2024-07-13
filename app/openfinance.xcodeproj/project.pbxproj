@@ -10,6 +10,9 @@
 		6944C75C2C41BBB100710D9A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6944C75B2C41BBB100710D9A /* Colors.swift */; };
 		6944C7602C41BE6500710D9A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6944C75F2C41BE6500710D9A /* DetailView.swift */; };
 		6944C7622C41BE7A00710D9A /* Dash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6944C7612C41BE7A00710D9A /* Dash.swift */; };
+		6962CE4A2C430BC2009D02AD /* OFApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962CE492C430BC2009D02AD /* OFApi.swift */; };
+		6962CE4D2C430C3F009D02AD /* BasedUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 6962CE4C2C430C3F009D02AD /* BasedUtils */; };
+		6962CE4F2C4316F7009D02AD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962CE4E2C4316F7009D02AD /* Config.swift */; };
 		698B38EF2C424F4300F68BB8 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698B38EE2C424F4300F68BB8 /* LineChartView.swift */; };
 		698B38F12C42500700F68BB8 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698B38F02C42500700F68BB8 /* BalanceView.swift */; };
 		698B38F32C4250BA00F68BB8 /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698B38F22C4250BA00F68BB8 /* AssetView.swift */; };
@@ -46,6 +49,8 @@
 		6944C75B2C41BBB100710D9A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		6944C75F2C41BE6500710D9A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		6944C7612C41BE7A00710D9A /* Dash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dash.swift; sourceTree = "<group>"; };
+		6962CE492C430BC2009D02AD /* OFApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFApi.swift; sourceTree = "<group>"; };
+		6962CE4E2C4316F7009D02AD /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		698B38EE2C424F4300F68BB8 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		698B38F02C42500700F68BB8 /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		698B38F22C4250BA00F68BB8 /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
@@ -70,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6962CE4D2C430C3F009D02AD /* BasedUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6962CE482C430BB3009D02AD /* api */ = {
+			isa = PBXGroup;
+			children = (
+				6962CE492C430BC2009D02AD /* OFApi.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
 		698B38ED2C424F3500F68BB8 /* components */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +140,10 @@
 		69F17DA22C41B9D7001D8D0B /* openfinance */ = {
 			isa = PBXGroup;
 			children = (
+				6962CE482C430BB3009D02AD /* api */,
 				698B38ED2C424F3500F68BB8 /* components */,
 				6944C75B2C41BBB100710D9A /* Colors.swift */,
+				6962CE4E2C4316F7009D02AD /* Config.swift */,
 				69F17DA32C41B9D7001D8D0B /* openfinanceApp.swift */,
 				69F17DA52C41B9D7001D8D0B /* ContentView.swift */,
 				6944C7612C41BE7A00710D9A /* Dash.swift */,
@@ -180,6 +196,9 @@
 			dependencies = (
 			);
 			name = openfinance;
+			packageProductDependencies = (
+				6962CE4C2C430C3F009D02AD /* BasedUtils */,
+			);
 			productName = openfinance;
 			productReference = 69F17DA02C41B9D7001D8D0B /* openfinance.app */;
 			productType = "com.apple.product-type.application";
@@ -252,6 +271,9 @@
 				Base,
 			);
 			mainGroup = 69F17D972C41B9D7001D8D0B;
+			packageReferences = (
+				6962CE4B2C430C3F009D02AD /* XCRemoteSwiftPackageReference "based-utils" */,
+			);
 			productRefGroup = 69F17DA12C41B9D7001D8D0B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -299,6 +321,8 @@
 				698B38F52C42519700F68BB8 /* AssetItemView.swift in Sources */,
 				6944C75C2C41BBB100710D9A /* Colors.swift in Sources */,
 				6944C7602C41BE6500710D9A /* DetailView.swift in Sources */,
+				6962CE4A2C430BC2009D02AD /* OFApi.swift in Sources */,
+				6962CE4F2C4316F7009D02AD /* Config.swift in Sources */,
 				698B38F92C42576900F68BB8 /* ExchangeRateView.swift in Sources */,
 				69F17DA42C41B9D7001D8D0B /* openfinanceApp.swift in Sources */,
 				698B38F32C4250BA00F68BB8 /* AssetView.swift in Sources */,
@@ -661,6 +685,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6962CE4B2C430C3F009D02AD /* XCRemoteSwiftPackageReference "based-utils" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/basedxyz/based-utils";
+			requirement = {
+				kind = exactVersion;
+				version = 0.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6962CE4C2C430C3F009D02AD /* BasedUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6962CE4B2C430C3F009D02AD /* XCRemoteSwiftPackageReference "based-utils" */;
+			productName = BasedUtils;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 69F17D982C41B9D7001D8D0B /* Project object */;
 }

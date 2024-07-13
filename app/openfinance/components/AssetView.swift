@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct AssetView: View {
+    var symbol: String
     var body: some View {
         VStack(alignment: .leading) {
-            Text("AMZN")
+            Text(symbol)
                 .font(.system(size: 32, weight: .black))
             Text("$189.45")
                 .font(.system(size: 24, weight: .bold))
@@ -19,5 +20,5 @@ struct AssetView: View {
 }
 
 #Preview {
-    AssetView()
+    AssetView(symbol: "AMZN")
 }

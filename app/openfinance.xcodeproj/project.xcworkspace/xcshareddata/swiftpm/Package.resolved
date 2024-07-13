@@ -1,0 +1,24 @@
+{
+  "originHash" : "17fc4b8f0f916af08a7e4dd1dc99044b16d7bf68e76fdd60df51f411897b8525",
+  "pins" : [
+    {
+      "identity" : "based-utils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/basedxyz/based-utils",
+      "state" : {
+        "revision" : "bce047e55b8442d342d63ce1a710e6e39ccf9d32",
+        "version" : "0.3.2"
+      }
+    },
+    {
+      "identity" : "bigint",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/attaswift/BigInt",
+      "state" : {
+        "revision" : "793a7fac0bfc318e85994bf6900652e827aef33e",
+        "version" : "5.4.1"
+      }
+    }
+  ],
+  "version" : 3
+}

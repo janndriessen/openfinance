@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AssetItemView: View {
+    var symbol: String
     let data = [
         DataPoint(x: 0, y: 1),
         DataPoint(x: 1, y: 3),
@@ -17,7 +18,7 @@ struct AssetItemView: View {
     ]
     var body: some View {
         HStack {
-            AssetView()
+            AssetView(symbol: symbol)
                 .padding(.trailing)
             LineChartView(data: data)
                 .frame(height: 70)
@@ -27,5 +28,5 @@ struct AssetItemView: View {
 }
 
 #Preview {
-    AssetItemView()
+    AssetItemView(symbol: "AMZN")
 }

@@ -8,22 +8,26 @@
 import SwiftUI
 
 struct DetailView: View {
+    var symbol: String
     let data = [
         DataPoint(x: 0, y: 1),
         DataPoint(x: 1, y: 3),
         DataPoint(x: 2, y: 2),
         DataPoint(x: 3, y: 4),
-        DataPoint(x: 4, y: 3)
+        DataPoint(x: 4, y: 3),
+        DataPoint(x: 4, y: 3),
+        DataPoint(x: 5, y: 6)
     ]
+    @State private var price: String = ""
     var body: some View {
         ZStack(alignment: .topLeading) {
             OFColor.background.edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading) {
-                AssetView()
+                AssetView(symbol: symbol)
                     .padding()
                 LineChartView(data: data)
                     .frame(height: 200)
-                ExchangeRateView()
+                ExchangeRateView(baseSymbol: symbol)
                     .padding()
                 Spacer()
                 HStack {
@@ -42,5 +46,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView()
+    DetailView(symbol: "AMZN")
 }
