@@ -1,7 +1,7 @@
 import { Address, parseAbi } from "viem";
 import { EvmPriceServiceConnection } from "@pythnetwork/pyth-evm-js";
 
-import { getAddressForSymbol } from "@/lib/addresses";
+import { getAddressForSymbol, getPriceIdForSymbols } from "@/lib/addresses";
 import { walletClient } from "@/lib/client";
 
 function getOracleFor(symbol1: string, symbol2: string): Address {
@@ -40,7 +40,10 @@ export async function POST(request: Request) {
   // USDC/USD
   const quoteTokenPriceFeedId =
     "0xeaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a";
-  const baseTokenPriceFeedId = "";
+  const baseTokenPriceFeedId = getPriceIdForSymbols(
+    res.baseToken,
+    res.quoteToken
+  );
   const pythPriceService = new EvmPriceServiceConnection(
     "https://hermes.pyth.network"
   );
