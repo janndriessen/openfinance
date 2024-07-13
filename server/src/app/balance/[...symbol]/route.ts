@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { Address, parseAbi } from "viem";
 
 import { getAddressForSymbol } from "@/lib/addresses";
@@ -6,10 +6,10 @@ import { publicClient } from "@/lib/client";
 
 export const dynamic = "force-dynamic";
 export async function GET(
-  request: NextRequest,
+  request: Request,
   { params }: { params: { symbol: string } }
 ) {
-  const searchParams = request.nextUrl.searchParams;
+  const { searchParams } = new URL(request.url);
   const account = searchParams.get("account") as Address;
   const symbols = params.symbol;
   if (symbols.length !== 1) {

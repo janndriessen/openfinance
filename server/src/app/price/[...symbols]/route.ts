@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { PriceServiceConnection } from "@pythnetwork/price-service-client";
 
 import { getPriceIdForSymbols } from "@/lib/addresses";
 
 export const dynamic = "force-dynamic";
 export async function GET(
-  request: NextRequest,
+  request: Request,
   { params }: { params: { symbols: string } }
 ) {
   const symbols = params.symbols;
