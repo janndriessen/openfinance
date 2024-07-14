@@ -46,7 +46,7 @@ contract EurcOraclesDeployment is Script {
             address(sNKE)
         );
 
-        // // Transfer 300 tokens of each ERC20 token to the OracleSwap contracts
+        // Transfer 300 tokens of each ERC20 token to the OracleSwap contracts
         eurc.transfer(address(swapAmzn), 300 * 10 ** 6);
         sAMZN.transfer(address(swapAmzn), 300 * 10 ** 18);
 
