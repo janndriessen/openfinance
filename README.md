@@ -41,3 +41,9 @@ forge script --chain base-sepolia scripts/EurcOraclesDeployment.s.sol:EurcOracle
 - sAMZN: [0xeb7804e82306a9d91f027b21399c53ca7d621fe7](https://sepolia.basescan.org/token/0xeb7804e82306a9d91f027b21399c53ca7d621fe7)
 - sAAPL: [0x12f9210cdf76d7f3886c379dd5b93838848fc256](https://sepolia.basescan.org/token/0x12f9210cdf76d7f3886c379dd5b93838848fc256)
 - sNKE: [0xcd71cfbfc9da2f580169b1d6395a271632bb8950](https://sepolia.basescan.org/token/0xcd71cfbfc9da2f580169b1d6395a271632bb8950)
+
+## Screenshots
+<img src="https://github.com/user-attachments/assets/802c5a3a-2597-4965-9ddc-cc1fa4b362b8" width="30%"/>
+<img src="https://github.com/user-attachments/assets/f2a18e2b-0c66-4f8f-bcfa-e91a9de8cea5" width="30%"/>
+<img src="https://github.com/user-attachments/assets/7f9b823f-b3bf-431c-889e-47a0236a703a" width="30%"/>
+
